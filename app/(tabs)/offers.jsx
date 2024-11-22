@@ -8,7 +8,10 @@ import { getOffers } from "../../lib/appwrite";
 import { EmptyState, SearchInput, Trending, VideoCard } from "../../components";
 
 const Offers = () => {
-  const { data: offers, refetch } = useApi(getOffers);
+  // const { data: offers, refetch } = useApi(getOffers);
+  const offers = [];
+  const refetch = () => {};
+
   const [refreshing, setRefreshing] = useState(false);
 
   const extractedData = offers?.results?.map((r) => {

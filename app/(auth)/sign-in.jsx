@@ -29,7 +29,7 @@ const SignIn = () => {
     // setUser(result);
     setIsLogged(true);
 
-    Alert.alert("Success", "User signed in successfully");
+    // Alert.alert("Success", "User signed in successfully");
     router.replace("/offers");
     // } catch (error) {
     //   Alert.alert("Error", error.message);
@@ -47,7 +47,7 @@ const SignIn = () => {
             minHeight: Dimensions.get("window").height - 250,
           }}
         >
-          <View className="flex items-center">
+          <View className="items-center">
             <Image
               source={images.logoFull}
               resizeMode="contain"
