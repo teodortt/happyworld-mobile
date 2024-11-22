@@ -8,7 +8,7 @@ import { useGlobalContext } from "../../context/GlobalProvider";
 
 const TabIcon = ({ icon, color, name, focused }) => {
   return (
-    <View className="flex items-center justify-center gap-2">
+    <View className="flex items-center justify-center gap-2 w-[100px]">
       <Image
         source={icon}
         resizeMode="contain"
@@ -28,7 +28,7 @@ const TabIcon = ({ icon, color, name, focused }) => {
 const TabLayout = () => {
   const { loading, isLogged } = useGlobalContext();
 
-  if (!loading && !isLogged) return <Redirect href="/sign-in" />;
+  // if (!loading && !isLogged) return <Redirect href="/sign-in" />;
 
   return (
     <>
@@ -38,6 +38,7 @@ const TabLayout = () => {
           tabBarInactiveTintColor: "#CDCDE0",
           tabBarShowLabel: false,
           tabBarStyle: {
+            paddingTop: 15,
             backgroundColor: "#161622",
             borderTopWidth: 1,
             borderTopColor: "#232533",
@@ -46,15 +47,15 @@ const TabLayout = () => {
         }}
       >
         <Tabs.Screen
-          name="home"
+          name="offers"
           options={{
-            title: "Home",
+            title: "Offers",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
               <TabIcon
                 icon={icons.home}
                 color={color}
-                name="Home"
+                name="Offers"
                 focused={focused}
               />
             ),

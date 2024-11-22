@@ -17,25 +17,25 @@ const SignIn = () => {
   });
 
   const submit = async () => {
-    if (form.email === "" || form.password === "") {
-      Alert.alert("Error", "Please fill in all fields");
-    }
+    // if (form.email === "" || form.password === "") {
+    //   Alert.alert("Error", "Please fill in all fields");
+    // }
 
     setSubmitting(true);
 
-    try {
-      await signIn(form.email, form.password);
-      const result = await getCurrentUser();
-      setUser(result);
-      setIsLogged(true);
+    // try {
+    // await signIn(form.email, form.password);
+    // const result = await getCurrentUser();
+    // setUser(result);
+    setIsLogged(true);
 
-      Alert.alert("Success", "User signed in successfully");
-      router.replace("/home");
-    } catch (error) {
-      Alert.alert("Error", error.message);
-    } finally {
-      setSubmitting(false);
-    }
+    Alert.alert("Success", "User signed in successfully");
+    router.replace("/offers");
+    // } catch (error) {
+    //   Alert.alert("Error", error.message);
+    // } finally {
+    setSubmitting(false);
+    // }
   };
 
   return (
@@ -54,7 +54,7 @@ const SignIn = () => {
           />
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
-            Log in to Aora
+            Вход
           </Text>
 
           <FormField

@@ -18,11 +18,11 @@ const EmptyState = ({ title, subtitle }) => {
         {subtitle}
       </Text>
 
-      <CustomButton
-        title="<- Начало"
+      {/* <CustomButton
+        title="< Начало"
         handlePress={() => router.push("/offers")}
         containerStyles="w-full my-5"
-      />
+      /> */}
     </View>
   );
 };
