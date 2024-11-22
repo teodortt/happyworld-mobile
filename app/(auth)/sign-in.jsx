@@ -44,14 +44,16 @@ const SignIn = () => {
         <View
           className="w-full flex justify-center h-full px-4 my-6"
           style={{
-            minHeight: Dimensions.get("window").height - 100,
+            minHeight: Dimensions.get("window").height - 250,
           }}
         >
-          <Image
-            source={images.logo}
-            resizeMode="contain"
-            className="w-[115px] h-[34px]"
-          />
+          <View className="flex items-center">
+            <Image
+              source={images.logoFull}
+              resizeMode="contain"
+              className="w-[215px] h-[60px]"
+            />
+          </View>
 
           <Text className="text-2xl font-semibold text-white mt-10 font-psemibold">
             Вход
@@ -66,14 +68,14 @@ const SignIn = () => {
           />
 
           <FormField
-            title="Password"
+            title="Парола"
             value={form.password}
             handleChangeText={(e) => setForm({ ...form, password: e })}
             otherStyles="mt-7"
           />
 
           <CustomButton
-            title="Sign In"
+            title="Вход"
             handlePress={submit}
             containerStyles="mt-7"
             isLoading={isSubmitting}
@@ -81,13 +83,13 @@ const SignIn = () => {
 
           <View className="flex justify-center pt-5 flex-row gap-2">
             <Text className="text-lg text-gray-100 font-pregular">
-              Don't have an account?
+              Нямаш акаунт?
             </Text>
             <Link
               href="/sign-up"
               className="text-lg font-psemibold text-secondary"
             >
-              Signup
+              Създай акаунт
             </Link>
           </View>
         </View>
