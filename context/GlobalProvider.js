@@ -6,28 +6,28 @@ const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
 
 const GlobalProvider = ({ children }) => {
-  const [isLogged, setIsLogged] = useState(false);
+  const [isLogged, setIsLogged] = useState(true); //false
   const [user, setUser] = useState(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false); //true
 
-  useEffect(() => {
-    getCurrentUser()
-      .then((res) => {
-        if (res) {
-          setIsLogged(true);
-          setUser(res);
-        } else {
-          setIsLogged(false);
-          setUser(null);
-        }
-      })
-      .catch((error) => {
-        console.log(error);
-      })
-      .finally(() => {
-        setLoading(false);
-      });
-  }, []);
+  // useEffect(() => {
+  //   getCurrentUser()
+  //     .then((res) => {
+  //       if (res) {
+  //         setIsLogged(true);
+  //         setUser(res);
+  //       } else {
+  //         setIsLogged(false);
+  //         setUser(null);
+  //       }
+  //     })
+  //     .catch((error) => {
+  //       console.log(error);
+  //     })
+  //     .finally(() => {
+  //       setLoading(false);
+  //     });
+  // }, []);
 
   return (
     <GlobalContext.Provider
