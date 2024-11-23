@@ -1,6 +1,13 @@
 import { useState } from "react";
 
-import { FlatList, Image, RefreshControl, Text, View } from "react-native";
+import {
+  ActivityIndicator,
+  FlatList,
+  Image,
+  RefreshControl,
+  Text,
+  View,
+} from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/FontAwesome6";
 
@@ -49,7 +56,7 @@ const OfferCard = ({ item }) => (
 );
 
 const Offers = () => {
-  const { data: offers, refetch } = useApi(getOffers);
+  const { data: offers, loading, refetch } = useApi(getOffers);
   const [refreshing, setRefreshing] = useState(false);
 
   const onRefresh = async () => {
@@ -57,6 +64,16 @@ const Offers = () => {
     await refetch();
     setRefreshing(false);
   };
+
+  // Show loading spinner while fetching offers
+  if (loading) {
+    return (
+      <SafeAreaView className="bg-primary h-full flex items-center justify-center">
+        <ActivityIndicator size="large" color="#fff" />
+        <Text className="text-white mt-4">Loading offers...</Text>
+      </SafeAreaView>
+    );
+  }
 
   return (
     <SafeAreaView className="bg-primary h-full">
