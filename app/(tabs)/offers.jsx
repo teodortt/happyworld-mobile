@@ -7,9 +7,19 @@ import useApi from "../../lib/useApi";
 import { getOffers } from "../../lib/appwrite";
 import { EmptyState, SearchInput, Trending, VideoCard } from "../../components";
 
+const staticPhoto =
+  "https://www.happyworld.bg/media/images/tmp_nantucket-ready-8.2e16d0ba.fill-600x450.format-webp_Z1F1z3A.webp";
+const staticPhoto2 =
+  "https://www.happyworld.bg/media/images/35227593_197382917263.2e16d0ba.fill-600x450.format-webp.webp";
+const staticPhoto3 =
+  "https://www.happyworld.bg/media/images/hb.2e16d0ba.fill-600x450.format-webp.webp";
 const Offers = () => {
   // const { data: offers, refetch } = useApi(getOffers);
-  const offers = [];
+  const offers = [
+    { id: 1, position: "aa", photo: staticPhoto },
+    { id: 2, position: "bb", photo: staticPhoto2 },
+    { id: 3, position: "cc", photo: staticPhoto3 },
+  ];
   const refetch = () => {};
 
   const [refreshing, setRefreshing] = useState(false);
@@ -28,24 +38,16 @@ const Offers = () => {
   return (
     <SafeAreaView className="bg-primary h-full">
       <FlatList
-        data={extractedData}
+        data={offers}
         keyExtractor={(item) => `${item.id}${item.position}`}
         renderItem={({ item }) => (
-          <View className="flex-row">
-            <View>
-              <Text className="text-orange-500">{item.position}</Text>
-            </View>
-            <View>
-              <Text className="text-orange-500">{item.location}</Text>
-            </View>
-          </View>
-          // <VideoCard
-          //   title={item.title}
-          //   thumbnail={item.thumbnail}
-          //   video={item.video}
-          //   creator={item.creator.username}
-          //   avatar={item.creator.avatar}
-          // />
+          <VideoCard
+            title={item.position}
+            thumbnail={item.photo}
+            video={item.position}
+            creator={item.id}
+            avatar={item.id}
+          />
         )}
         ListHeaderComponent={() => (
           <View className="flex my-6 px-4 space-y-6">
