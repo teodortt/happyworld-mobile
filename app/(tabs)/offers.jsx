@@ -8,7 +8,6 @@ import {
   Text,
   View,
 } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/FontAwesome6";
 
 import { EmptyState, SearchInput } from "../../components";
@@ -17,7 +16,7 @@ import { getOffers } from "../../lib/appwrite";
 import useApi from "../../lib/useApi";
 
 const OfferCard = ({ item }) => (
-  <View className="flex-row mb-4 border border-white rounded-lg overflow-hidden">
+  <View className="flex-row mb-4 mx-2 bg-gray-800 border-none rounded-lg overflow-hidden">
     <Image
       source={{
         uri: `https://www.happyworld.bg${item.image.meta.download_url}`,
@@ -79,10 +78,11 @@ const Offers = () => {
     <SafeAreaView className="bg-primary h-full">
       <FlatList
         data={offers?.items}
+        // style={{ top: insets.top - 30 }}
         keyExtractor={(item) => `${item.meta.type}.${item.id}`}
         renderItem={({ item }) => <OfferCard item={item} />}
         ListHeaderComponent={() => (
-          <View className="flex my-6 px-4 space-y-6">
+          <View className="flex my-6 px-2 space-y-6">
             <View className="flex flex-row justify-between items-center mb-6">
               <View>
                 <Text className="font-medium text-sm text-gray-100">
