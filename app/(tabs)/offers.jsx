@@ -8,6 +8,7 @@ import {
   Text,
   View,
 } from "react-native";
+import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/FontAwesome6";
 
 import { EmptyState, SearchInput } from "../../components";
