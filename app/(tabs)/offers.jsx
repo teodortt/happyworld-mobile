@@ -76,7 +76,7 @@ const Offers = () => {
   }
 
   return (
-    <SafeAreaView className="bg-primary h-full">
+    <SafeAreaView className="bg-primary h-full" edges={{ top: "additive" }}>
       <FlatList
         data={offers?.items}
         // style={{ top: insets.top - 30 }}
