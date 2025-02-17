@@ -6,7 +6,9 @@ import {
   Image,
   RefreshControl,
   Text,
+  TouchableOpacity,
   View,
+  Alert,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/FontAwesome6";
@@ -89,6 +91,15 @@ const Offers = () => {
                 <Text className="font-medium text-sm text-gray-100">
                   Work and Travel
                 </Text>
+                <TouchableOpacity
+                  onPress={() => {
+                    Alert.alert("No values stored under that key.");
+                    console.log("No values are stored under that key.");
+                  }}
+                >
+                  <Text className="text-white">TEST</Text>
+                </TouchableOpacity>
+
                 <Text className="text-2xl font-semibold text-white">
                   Работни оферти
                 </Text>
