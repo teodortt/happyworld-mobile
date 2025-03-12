@@ -9,6 +9,7 @@ import {
   TouchableOpacity,
   View,
   Alert,
+  ScrollView,
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import Icon from "react-native-vector-icons/FontAwesome6";
@@ -22,7 +23,8 @@ const OfferCard = ({ item }) => (
   <View className="flex-row mb-4 mx-2 bg-gray-800 border-none rounded-lg overflow-hidden">
     <Image
       source={{
-        uri: `https://www.happyworld.bg${item.image.meta.download_url}`,
+        // uri: `https://www.happyworld.bg${item.image.meta.download_url}`,
+        uri: `https://picsum.photos/300`,
       }}
       className="w-36 h-36"
     />
@@ -33,16 +35,24 @@ const OfferCard = ({ item }) => (
       <Text className="text-sm text-gray-300">
         {item.city}, {item.state}
       </Text>
-      <View className="flex-row flex-wrap items-center gap-2 mt-2">
+      <View className="flex-row pt-2 gap-2 items-center">
         <Icon name="house-user" size={14} color="#888" />
-        {item.featuresList?.map((feature, index) => (
-          <Text
-            key={index}
-            className="text-xs text-white bg-white/20 px-2 py-1 rounded-md"
-          >
-            {feature}
-          </Text>
-        ))}
+        <ScrollView
+          horizontal
+          showsHorizontalScrollIndicator={false}
+          className="flex-1"
+        >
+          <View className="flex-row items-center gap-2">
+            {item.featuresList?.map((feature, index) => (
+              <Text
+                key={index}
+                className="text-xs text-white bg-white/20 px-2 py-1 rounded-md"
+              >
+                {feature}
+              </Text>
+            ))}
+          </View>
+        </ScrollView>
       </View>
       <View className="flex-row justify-between items-center mt-4">
         <Text className="text-lg font-bold text-white">
@@ -91,14 +101,14 @@ const Offers = () => {
                 <Text className="font-medium text-sm text-gray-100">
                   Work and Travel
                 </Text>
-                <TouchableOpacity
+                {/* <TouchableOpacity
                   onPress={() => {
                     Alert.alert("No values stored under that key.");
                     console.log("No values are stored under that key.");
                   }}
                 >
                   <Text className="text-white">TEST</Text>
-                </TouchableOpacity>
+                </TouchableOpacity> */}
 
                 <Text className="text-2xl font-semibold text-white">
                   Работни оферти
